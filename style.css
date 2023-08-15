@@ -1,0 +1,545 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #287bff;
+    --white: #fff;
+    --grey2: #e4e3e3;
+    --black1: #222;
+    --black2: #999;
+    --grey: #f5f5f5;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.navigation {
+    position: fixed;
+    width: 330px;
+    height: 100%;
+    background: #625f5b;
+    border-left: 10px solid #625f5b;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 70px;
+}
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 200%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    font-size: 1.1em;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: #625f5b;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+/*-------MAIN------*/
+
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    margin-right: 1cqi;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+    margin-left: 320px;
+}
+
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+
+.users {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left: 30%;
+}
+
+.users img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+}
+
+.cardBox .card:hover {
+    transform: translateX(0.5s);
+    background: #807b76;
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 600;
+    font-size: 2.5em;
+    color: #5e5c59;
+}
+
+.cardBox .card .cardName {
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBox {
+    font-size: 2.2em;
+    color: var(--black2);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox {
+    color: var(--white);
+}
+
+
+/*    MULTIPURPOSE CARDS   */
+
+.multi-cards {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-gap: 30px;
+    min-height: 150px;
+    text-align: center;
+}
+
+.multi-cards .differCards {
+    position: relative;
+    background: var(--white);
+    min-height: 250px;
+    display: grid;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+}
+
+.multi-cards #differCard-1 {
+    background-color: #c0cf98;
+}
+
+.multi-cards #differCard-2 {
+    background-color: #bfb79d;
+}
+
+.multi-cards #differCard-3 {
+    background-color: #eed59d;
+}
+.differHeader {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.differHeader h3.Header {
+    font-weight: 600;
+    color: rgb(65, 72, 51);
+}
+
+.multi-cards table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: -30px;
+}
+
+.multi-cards table thead th {
+    text-align: left;
+    font-weight: 600;
+    padding: 10px;
+    color: rgb(65, 72, 51);
+}
+
+.multi-cards table thead th:last-child {
+    text-align: end;
+}
+
+.multi-cards .differCards table tr:last-child {
+    border-bottom: none;
+}
+
+.multi-cards .differCards table tr td {
+    padding: 2px;
+    color: #656D4A;
+}
+
+.multi-cards .differCards table tr td:last-child {
+    text-align: end;
+    padding-right: 10px;
+}
+
+.multi-cards .differCards table tr td:nth-child(1) {
+    text-align: start;
+}
+
+/*    CHARTS   */
+
+.graphBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+    grid-gap: 30px;
+    min-height: 200px;
+}
+
+.graphBox .box {
+    position: relative;
+    background: var(--white);
+    padding: 20px;
+    width: 100%;
+    height: 350px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+}
+
+.graphBox #box-1 {
+    padding-left: 40px;
+}
+
+.graphBox #box-2 {
+    padding-left: 80px;
+}
+
+
+/*    BOTTOM TABLES   */
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+.details .recentOrders {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cardHeader h2.Order {
+    font-weight: 600;
+    color: #5e5c59;
+    margin-right: 260px;
+}
+
+.btn {
+    position: relative;
+    padding: 5px 10px;
+    background: #807b76;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+    margin-left: 70px;
+}
+
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead th {
+    text-align: left;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.details table thead th:last-child {
+    text-align: end;
+}
+
+.details table thead th:nth-child(2) {
+    text-align: end;
+}
+
+.details table thead th:nth-child(3) {
+    text-align: end;
+}
+
+.details .recentOrders table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .recentOrders table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+    background: #807b76;
+    color: var(--white);
+}
+
+.details .recentOrders table tr td {
+    padding: 10px;
+}
+
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(2) {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(3) {
+    text-align: end;
+}
+
+.recentCustomers {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgb(0, 0, 0, 0.09);
+    border-radius: 20px;
+}
+
+.cardHeader h2.Custmr {
+    font-weight: 600;
+    color: #5e5c59;
+}
+
+.recentCustomers .imgBox {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.recentCustomers .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recentCustomers table tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.recentCustomers table tr td {
+    padding: 12px 10px;
+}
+
+.recentCustomers table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.recentCustomers table tr td h4 span {
+    font-size: 14px;
+    color: var(--black2);
+}
+
+.recentCustomers table tr:hover {
+    background: #807b76;
+    color: var(--white);
+}
+
+.recentCustomers table tr:hover td h4 span {
+    color: var(--white);
+}
+
+
+
+
+
+
+
+
+
+
