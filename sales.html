@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <!-- Including the fusioncharts core library -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <!-- Including the map renderer file -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.maps.js "></script>
+    <!-- Including the map definition file -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.world.js"></script>
+    <!-- Including the fusion theme -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sales.css">
     <title>Dashboard Design</title>
 </head>
 <body>
-   <div class="container">
+
+<div class="container">
     <div class="navigation">
         <ul>
             <li>
@@ -25,16 +36,16 @@
             </li>
             
             <li>
-                <a href="#">
+                <a href="social_analytics.html">
                     <span class="icon"><ion-icon name="analytics"></ion-icon></span>
                     <span class="title">Social Analytics</span>
                 </a>
             </li>
 
             <li>
-                <a href="message.html">
+                <a href="sales.html">
                     <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                    <span class="title">Message</span>
+                    <span class="title">Sales</span>
                 </a>
             </li>
             
@@ -65,7 +76,6 @@
         </ul>
     </div>
 
-    <!-------MAIN--------->
     <div class="main">
         <div class="topbar">
             <div class="toggle">
@@ -81,33 +91,53 @@
                 <img src="images/User.jpeg" alt="user">
             </div>
         </div>
-    </div>
+
+        <div class="annual-sales-container">
+            <div class="box-1" id="chart-container">
+            </div>
+            <div class="box-2">
+                <div class="continents-box">
+                    <h2>Sales Per Country</h2>
+                </div>
+            </div>
+        </div>
+    </div>    
 
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        // Menu toggle
-        let toggle = document.querySelector('.toggle');
-        let navigation = document.querySelector('.navigation');
-        let main = document.querySelector('.main');
-    
-        toggle.onclick = function(){
-            navigation.classList.toggle('active');
-            main.classList.toggle('active');
-        }
-    
-        //add hovered class in selected list item
-        let list = document.querySelectorAll('.navigation li');
-        function activeLink(){
-            list.forEach((item) =>
-            item.classList.remove('hovered'));
-            this.classList.add('hovered');
-        }
+   <script src="./my_chart.js"></script>
+   <script src="./recentOrders.js"></script>
+   <script src="./recentCustomers.js"></script>
+   <script src="./SMFollowers.js"></script>
+   <script src="./map.js"></script>
+   <script>
+
+    // Menu toggle
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    let main = document.querySelector('.main');
+
+    toggle.onclick = function(){
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+
+    //add hovered class in selected list item
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
         list.forEach((item) =>
-        item.addEventListener('mouseover' ,activeLink));
-    </script>
+        item.classList.remove('hovered'));
+        this.classList.add('hovered');
+    }
+    list.forEach((item) =>
+    item.addEventListener('mouseover' ,activeLink));
+   </script>
 
 </body>
 </html>

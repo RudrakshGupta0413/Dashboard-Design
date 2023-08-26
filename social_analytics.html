@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+     <!-- Step 1 - Include the fusioncharts core library -->
+     <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+     <!-- Step 2 - Include the fusion theme -->
+     <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="social_analytics.css">
     <title>Dashboard Design</title>
 </head>
 <body>
-   <div class="container">
+
+<div class="container">
     <div class="navigation">
         <ul>
             <li>
@@ -26,16 +31,16 @@
             </li>
             
             <li>
-                <a href="#">
+                <a href="social_analytics.html">
                     <span class="icon"><ion-icon name="analytics"></ion-icon></span>
                     <span class="title">Social Analytics</span>
                 </a>
             </li>
 
             <li>
-                <a href="message.html">
+                <a href="sales.html">
                     <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                    <span class="title">Message</span>
+                    <span class="title">Sales</span>
                 </a>
             </li>
             
@@ -82,47 +87,102 @@
                 <img src="images/User.jpeg" alt="user">
             </div>
         </div>
+
+        <!-----CARDS----->
+        <div class="HeaderBox">
+            <div class="HeaderCard">
+                <div>
+                    <div class="cardHeading">Facebook</div>
+                </div>
+            </div>
+
+            <div class="HeaderCard">
+                <div>
+                    <div class="cardHeading">Youtube</div>
+                </div>
+            </div>
+        </div>
+
+        <!-----MULTIPURPOSE CARDS------>
+
+        <div class="info-cards">
+            <div id="infoCard-1" class="infoCards">
+                <div class="differHeader">
+                    <h3 class="Header">Engagements</h3>
+                </div>
+            </div>
+
+            <div id="infoCard-2" class="infoCards">
+                <div class="differHeader">
+                    <h3 class="Header">Total Likes</h3>
+                </div>
+                
+            </div>
+
+            <div id="infoCard-3" class="infoCards">
+                <div class="differHeader">
+                    <h3 class="Header">Subscribers</h3>
+                </div>
+    
+            </div>
+
+            <div id="infoCard-3" class="infoCards">
+                <div class="differHeader">
+                    <h3 class="Header">Views</h3>
+                </div>
+                
+            </div>
+        </div>
+
+
+        <!-----CARDS----->
+        <div class="HeaderBox">
+            <div class="HeaderCard">
+                <div>
+                    <div class="cardHeading">Twitter</div>
+                </div>
+            </div>
+
+            <div class="HeaderCard">
+                <div>
+                    <div class="cardHeading">Threads</div>
+                </div>
+            </div>
+        </div>
+
     </div>
+   </div>
 
-    <!------SOCIAL HEADING-1------>
-
-    <div class="social-heading-1">
-        <div class="heading">
-            <h3>Facebook</h3>
-        </div>
-        <div class="heading">
-            <h3>Twitter</h3>
-        </div>
-        <div class="heading">
-            <h3>Youtube</h3>
-        </div>
-    </div>
-
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        // Menu toggle
-        let toggle = document.querySelector('.toggle');
-        let navigation = document.querySelector('.navigation');
-        let main = document.querySelector('.main');
-    
-        toggle.onclick = function(){
-            navigation.classList.toggle('active');
-            main.classList.toggle('active');
-        }
-    
-        //add hovered class in selected list item
-        let list = document.querySelectorAll('.navigation li');
-        function activeLink(){
-            list.forEach((item) =>
-            item.classList.remove('hovered'));
-            this.classList.add('hovered');
-        }
+   <script src="./my_chart.js"></script>
+   <script src="./recentOrders.js"></script>
+   <script src="./recentCustomers.js"></script>
+   <script src="./SMFollowers.js"></script>
+   <script>
+
+    // Menu toggle
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    let main = document.querySelector('.main');
+
+    toggle.onclick = function(){
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+
+    //add hovered class in selected list item
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
         list.forEach((item) =>
-        item.addEventListener('mouseover' ,activeLink));
-    </script>
+        item.classList.remove('hovered'));
+        this.classList.add('hovered');
+    }
+    list.forEach((item) =>
+    item.addEventListener('mouseover' ,activeLink));
+   </script>
 
 </body>
 </html>

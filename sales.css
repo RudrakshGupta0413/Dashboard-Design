@@ -1,0 +1,20 @@
+.annual-sales-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 20px;
+    padding: 30px;
+}
+
+#chart-container {
+    position: relative;
+    width: 50rem;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+    align-items: center;
+    justify-content: center;
+}
+
+.box-2 {
+    position: relative;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.09);
+}
